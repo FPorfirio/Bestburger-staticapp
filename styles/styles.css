@@ -1,0 +1,353 @@
+.section-ingredients__title, .section-contact__title {
+  margin: 0;
+  font-size: 69px;
+  background: darkolivegreen;
+  font-family: "Yellowtail", cursive;
+  text-align: center;
+  border-color: darkorange; }
+  @media screen and (max-width: 800px) {
+    .section-ingredients__title, .section-contact__title {
+      font-size: 56px; } }
+  @media screen and (max-width: 400px) {
+    .section-ingredients__title, .section-contact__title {
+      font-size: 44px; } }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 1fr 10%;
+  grid-template-rows: 1fr 5%; }
+
+.banner {
+  background: white;
+  width: 100%;
+  position: fixed;
+  height: 78px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap; }
+  @media screen and (max-width: 1120px) {
+    .banner {
+      flex-wrap: nowrap; } }
+  @media screen and (max-width: 800px) {
+    .banner {
+      flex-wrap: wrap; } }
+  .banner__logo {
+    height: 100%;
+    flex-basis: 25%;
+    box-sizing: border-box;
+    text-align: center; }
+    @media screen and (max-width: 800px) {
+      .banner__logo {
+        height: 100%;
+        text-align: center;
+        flex-basis: 100%; } }
+  .banner__logo-img {
+    max-height: 100%; }
+  .banner__nav {
+    flex-basis: 75%;
+    box-sizing: border-box;
+    font-family: "Amatic SC", cursive;
+    font-size: 3em;
+    border: 4px double white;
+    background: darkred; }
+    @media screen and (max-width: 1120px) {
+      .banner__nav {
+        flex-basis: 100%; } }
+    @media screen and (max-width: 800px) {
+      .banner__nav {
+        flex-basis: 100%;
+        border: none;
+        font-size: 2em;
+        display: none; } }
+    .banner__nav--open {
+      display: block; }
+  .banner__nav-toggle {
+    display: none;
+    background: darkred;
+    position: absolute;
+    border: 1px solid white;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    right: 0;
+    top: 9px; }
+    @media screen and (max-width: 800px) {
+      .banner__nav-toggle {
+        display: block; } }
+  .banner__nav-toggleBox {
+    background: red; }
+  .banner__nav-icon {
+    background: white;
+    height: 10%;
+    width: 75%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -37.5%;
+    top: 50%;
+    margin-top: -5%;
+    border-radius: 15%; }
+    .banner__nav-icon:after {
+      content: '';
+      background: white;
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 17px;
+      border-radius: 15%; }
+    .banner__nav-icon:before {
+      content: '';
+      background: white;
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      bottom: 17px;
+      border-radius: 15%; }
+    .banner__nav-icon--closed:before {
+      content: none; }
+    .banner__nav-icon--closed:after {
+      content: none; }
+  .banner__nav-ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    @media screen and (max-width: 800px) {
+      .banner__nav-ul {
+        flex-wrap: wrap; } }
+  .banner__nav-li {
+    text-align: center; }
+    @media screen and (max-width: 800px) {
+      .banner__nav-li {
+        text-align: left;
+        flex-basis: 100%; } }
+  .banner__nav-li:first-child {
+    padding: 0; }
+  .banner__nav-link {
+    text-decoration: none;
+    color: white; }
+    @media screen and (max-width: 800px) {
+      .banner__nav-link {
+        display: block;
+        border-bottom: 1px solid white;
+        height: 40px;
+        line-height: 40px; } }
+
+.main {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  margin-top: 78px; }
+  .main--open-menu {
+    margin-top: 200px; }
+
+.section-description {
+  position: relative;
+  background: url("../images/hamburguer.png") no-repeat;
+  background-size: 100%;
+  height: 54vw; }
+  @media screen and (max-width: 800px) {
+    .section-description {
+      background-position: bottom;
+      background-color: black;
+      height: 73vw; } }
+  @media screen and (max-width: 480px) {
+    .section-description {
+      height: 113vw; } }
+  .section-description__text {
+    color: white;
+    font-family: "Fredericka the Great", cursive;
+    font-size: 2vw;
+    margin: 0;
+    width: 50%;
+    position: absolute;
+    right: 5%;
+    top: 7%; }
+    @media screen and (max-width: 1120px) {
+      .section-description__text {
+        font-size: 2.6vw; } }
+    @media screen and (max-width: 800px) {
+      .section-description__text {
+        font-size: 3.6vw; } }
+    @media screen and (max-width: 480px) {
+      .section-description__text {
+        font-size: 6.6vw;
+        width: 100%;
+        right: 0;
+        margin-top: 1vh; } }
+
+.section-ingredients {
+  background-size: 50vw;
+  background-position: 90% 54%;
+  background-repeat: no-repeat;
+  background-color: black;
+  position: relative;
+  height: 100vh; }
+  .section-ingredients__title {
+    color: burlywood;
+    background-image: linear-gradient(#a67039, black);
+    border-top: 2px outset #8e5923; }
+  @media screen and (max-width: 750px) {
+    .section-ingredients {
+      height: 112vh; } }
+  .section-ingredients__descriptionWrapper {
+    position: absolute;
+    left: 15%;
+    top: 14%;
+    width: 43vw;
+    z-index: 2;
+    color: white;
+    font-family: "Fredericka the Great", cursive;
+    font-size: 150%; }
+    @media screen and (max-width: 1200px) {
+      .section-ingredients__descriptionWrapper {
+        width: 50vw;
+        left: 6%; } }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__descriptionWrapper {
+        width: 100%;
+        left: 0;
+        font-size: 111%;
+        top: 12%;
+        height: 82%; } }
+    @media screen and (max-width: 320px) {
+      .section-ingredients__descriptionWrapper {
+        font-size: 90%;
+        top: 8%; } }
+  .section-ingredients__ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__ul {
+        text-align: center; } }
+  .section-ingredients__li {
+    margin-bottom: 3vw; }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__li {
+        margin-bottom: 9%; } }
+  .section-ingredients__description {
+    margin: 0;
+    opacity: 0;
+    transition: opacity 3s; }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__description {
+        opacity: 0;
+        background: darkred; } }
+    .section-ingredients__description--show {
+      opacity: 1; }
+  .section-ingredients__imageWrapper {
+    position: absolute;
+    top: 11%;
+    right: 5.5vw;
+    height: 80%;
+    width: 40vw; }
+    @media screen and (max-width: 1200px) {
+      .section-ingredients__imageWrapper {
+        right: 0;
+        width: 50vw; } }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__imageWrapper {
+        height: 82%;
+        width: 100vw;
+        top: 13%; } }
+    @media screen and (max-width: 320px) {
+      .section-ingredients__imageWrapper {
+        top: 10%; } }
+  .section-ingredients__image {
+    width: 100%;
+    position: absolute;
+    height: 100%; }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__image {
+        z-index: 1; } }
+  .section-ingredients__element {
+    background: black;
+    opacity: 1;
+    box-sizing: border-box; }
+    @media screen and (max-width: 750px) {
+      .section-ingredients__element {
+        position: relative;
+        z-index: 2;
+        background: transparent; } }
+    .section-ingredients__element--bun {
+      height: 16%; }
+    .section-ingredients__element--glaze {
+      height: 11.5%; }
+    .section-ingredients__element--mushroom {
+      height: 10.5%; }
+    .section-ingredients__element--letucce {
+      height: 9.6%; }
+    .section-ingredients__element--tomato {
+      height: 9.5%; }
+    .section-ingredients__element--cheese {
+      height: 12.6%; }
+    .section-ingredients__element--patty {
+      height: 11%; }
+    .section-ingredients__element--ketchup {
+      height: 9%; }
+
+.section-contact {
+  background: darkolivegreen;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  padding-bottom: 32px; }
+  .section-contact__title {
+    color: darkgoldenrod;
+    background-image: linear-gradient(black, darkolivegreen); }
+  .section-contact__video {
+    width: 56vw;
+    height: 38vw;
+    margin: 6vw auto;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%); }
+    @media screen and (max-width: 750px) {
+      .section-contact__video {
+        margin-top: 7vh;
+        height: 45vh;
+        width: 89vw; } }
+    @media screen and (max-width: 480px) {
+      .section-contact__video {
+        height: 27vh; } }
+  .section-contact__email {
+    text-align: center; }
+  .section-contact__email-label {
+    color: white;
+    font-family: "Fredericka the Great", cursive;
+    font-size: 2vw;
+    display: block; }
+    @media screen and (max-width: 1120px) {
+      .section-contact__email-label {
+        font-size: 2.6vw; } }
+    @media screen and (max-width: 800px) {
+      .section-contact__email-label {
+        font-size: 4.6vw; } }
+    @media screen and (max-width: 450px) {
+      .section-contact__email-label {
+        font-size: 6.6vw; } }
+  .section-contact__input {
+    margin: 2% 0 0;
+    border: 3px ridge darkkhaki; }
+
+.footer {
+  grid-column: 1 /4;
+  grid-row: 2;
+  text-align: center;
+  font-family: "Fredericka the Great", cursive; }
+  @media screen and (max-width: 450px) {
+    .footer {
+      font-size: 2.6vw; } }
+
+/*# sourceMappingURL=styles.css.map */

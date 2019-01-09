@@ -1,0 +1,38 @@
+@mixin Mq($arg...){
+    @if length($arg) == 1 {
+        @media screen and (max-width: nth($arg,1)) {
+            @content;
+        }
+    }
+
+    @if length($arg) == 2 {
+        @media screen and (max-width: nth($arg,2)) {
+            @content;
+        }
+    }
+}
+
+@mixin content_text($arg){
+    color: white;
+    font-family: $content_font;
+    font-size: $arg
+}
+
+%section_title{
+    margin: 0;
+    font-size: 69px;
+    background: darkolivegreen;
+    font-family: $header_font;
+    text-align: center;
+    border-color: darkorange;
+
+    @include Mq(800px){
+        font-size: 56px;
+    }
+
+    @include Mq(400px){
+        font-size: 44px;
+    }
+}
+
+

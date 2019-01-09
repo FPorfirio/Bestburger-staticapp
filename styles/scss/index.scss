@@ -1,0 +1,468 @@
+@import 'variables';
+@import 'mixins';
+
+html, body{
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 1fr 10%;
+    grid-template-rows: 1fr 5%;
+}
+
+.banner{
+    background: white;
+    width: 100%;
+    position: fixed;
+    height: 78px;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    
+    @include Mq(1120px){
+         flex-wrap: nowrap;   
+    }
+
+    @include Mq(800px){
+        flex-wrap: wrap;   
+    }
+
+    &__logo{
+        height: 100%;
+        flex-basis: 25%;
+        box-sizing: border-box;
+        text-align: center;
+        
+        @include Mq(800px){
+            height: 100%;
+            text-align: center;
+            flex-basis: 100%;   
+       }
+
+    }
+
+    &__logo-img{
+        max-height: 100%;
+    }
+
+    &__nav{
+        flex-basis: 75%;
+        box-sizing: border-box;
+        font-family: $nav_font;
+        font-size: 3em;
+        border: 4px double white;
+        background: darkred;
+        
+        @include Mq(1120px){
+            flex-basis: 100%;
+        }
+
+        @include Mq(800px){
+            flex-basis: 100%;
+            border: none;
+            font-size: 2em;
+            display: none;
+        }
+
+        &--open{
+            display: block
+        }
+    }
+
+    &__nav-toggle{
+        display: none;
+        background: darkred;
+        position: absolute;
+        border: 1px solid white;
+        box-sizing: border-box;
+        width: 60px;
+        height: 60px;
+        right: 0;
+        top: 9px;
+     
+        @include Mq(800px){
+            display: block;
+        }
+     
+    }
+
+    
+
+    &__nav-toggleBox{
+        background: red;
+    }
+
+    &__nav-icon{
+
+        background: white;
+        height: 10%;
+        width: 75%;
+        display: block;
+        position: absolute;
+        left: 50%;
+        margin-left: -37.5%;
+        top: 50%;
+        margin-top: -5%;
+        border-radius: 15%;
+
+        &:after{
+            content: '';
+            background: white;
+            height: 100%;
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 17px;
+            border-radius: 15%;
+        }
+        &:before{
+            content: '';
+            background: white;
+            height: 100%;
+            width: 100%;
+            display: block;
+            position: absolute;
+            bottom: 17px;
+            border-radius: 15%;
+        }
+
+        &--closed{
+            &:before{
+                content: none;
+            }
+
+            &:after{
+               content: none;
+            }
+        }
+    }
+
+    &__nav-ul{
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        @include Mq(800px){
+            flex-wrap: wrap; 
+       }
+    }
+
+    &__nav-li{
+        text-align: center;
+
+        @include Mq(800px){
+            text-align: left;
+            flex-basis: 100%;   
+        }
+    }
+
+    &__nav-li:first-child{
+        padding:0;
+    }
+
+    &__nav-link{
+        text-decoration: none;
+        color: white;
+        
+        @include Mq(800px){
+            display: block;
+            border-bottom: 1px solid white;   
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+}
+
+.main{
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    margin-top: 78px;
+
+    @include Mq(800px){
+   }
+
+   &--open-menu{
+       margin-top: 200px;
+   }
+
+}
+
+.section-description{
+    position: relative;
+    background: url('../images/hamburguer.png') no-repeat;
+    background-size: 100%;
+    height: 54vw;
+    
+    @include Mq(800px){
+        background-position: bottom;
+        background-color: black;
+        height: 73vw;
+    }
+
+    @include Mq(480px){
+       height: 113vw;
+    }
+
+    &__text{
+        @include content_text(2vw);
+        margin: 0;
+        width: 50%;
+        position: absolute;
+        right: 5%;
+        top: 7%;
+        
+        @include Mq(1120px){
+            font-size: 2.6vw
+        }
+
+        @include Mq(800px){
+            font-size: 3.6vw
+        }
+
+        @include Mq(480px){
+            font-size: 6.6vw;
+            width: 100%;
+            right: 0;
+            margin-top: 1vh;
+        }
+    }
+}
+
+.section-ingredients{
+    background-size: 50vw;
+    background-position: 90% 54%;
+    background-repeat: no-repeat;
+    background-color: black;
+    position: relative;
+    height: 100vh;
+
+    &__title{
+       @extend %section_title;
+        color: burlywood;
+        background-image: linear-gradient(#a67039, black);
+        border-top: 2px outset #8e5923;
+    }
+
+    @include Mq(750px){
+        height: 112vh;
+    }
+
+    &__descriptionWrapper{
+        position: absolute;
+        left: 15%;
+        top: 14%;
+        width: 43vw;
+        z-index: 2;
+        @include content_text(150%);
+
+
+        @include Mq(1200px){
+            width: 50vw;
+            left: 6%;
+        }
+
+        @include Mq(750px){
+            width: 100%;
+            left: 0;
+            font-size: 111%;
+            top: 12%;
+            height: 82%;
+        }
+
+        @include Mq(320px){
+            font-size: 90%;
+            top: 8%;
+        }
+        
+    }
+
+    &__ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        @include Mq(750px){
+            text-align: center;
+        }
+    }
+
+    &__li{
+        margin-bottom: 3vw;
+
+        @include Mq(750px){
+            margin-bottom: 9%;
+        }
+    }
+
+    &__description{
+        margin: 0;
+        opacity:0;
+        transition: opacity 3s;
+
+        @include Mq(750px){
+            opacity:0;
+            background: darkred;
+        }
+
+        &--show{
+            opacity: 1;
+        }
+    }
+
+    &__imageWrapper{
+        position: absolute;
+        top: 11%;
+        right: 5.5vw;
+        height: 80%;
+        width: 40vw;
+
+        @include Mq(1200px){
+            right: 0;
+            width: 50vw
+        }
+
+        @include Mq(750px){
+            height: 82%;
+            width: 100vw;
+            top: 13%;
+        }
+
+        @include Mq(320px){
+            top: 10%;
+        }
+    }  
+
+    &__image{
+        width: 100%;
+        position: absolute;
+        height: 100%;;
+
+        @include Mq(750px){
+            z-index: 1;
+        }
+    }
+
+    &__element{
+        background: black;
+        opacity: 1;
+        box-sizing: border-box;
+        
+        @include Mq(750px){
+            position: relative;
+            z-index: 2;
+            background: transparent;
+        }
+        &--bun{
+            height: 16%;
+        }
+
+        &--glaze{
+            height: 11.5%;
+        }
+    
+        &--mushroom{
+            height: 10.5%;
+        }
+    
+        &--letucce{
+            height: 9.6%;
+        }
+    
+        &--tomato{
+            height: 9.5%;
+        }
+    
+        &--cheese{
+            height: 12.6%;
+        }
+    
+        &--patty{
+            height: 11%;
+        }
+    
+        &--ketchup{
+            height: 9%
+        }
+    }
+}
+
+.section-contact{
+    background: darkolivegreen;
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    padding-bottom: 32px;
+    
+    &__title{
+        @extend %section_title;
+        color: darkgoldenrod;
+        background-image: linear-gradient(black, darkolivegreen)
+    }
+
+    &__video{
+        width: 56vw;
+        height: 38vw;
+        margin: 6vw auto;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        
+        @include Mq(750px){
+            margin-top: 7vh;
+            height: 45vh;
+            width: 89vw;
+        }
+
+        @include Mq(480px){
+           height: 27vh
+        }
+        
+    }
+
+    &__email{
+        text-align: center;
+    }
+
+    &__email-label{
+        @include content_text(2vw);
+        display: block;
+        
+        @include Mq(1120px){
+            font-size: 2.6vw;
+        }
+
+        @include Mq(800px){
+            font-size: 4.6vw;
+        }
+
+        @include Mq(450px){
+            font-size: 6.6vw;
+        }
+
+        
+    }
+
+    &__input{
+        margin: 2% 0 0;
+        border: 3px ridge darkkhaki;
+    }
+}
+
+.footer{
+    grid-column: 1 /4;
+    grid-row: 2;
+    text-align: center;
+    font-family: $content_font;
+
+    @include Mq(450px){
+        font-size: 2.6vw;
+    }
+}
