@@ -9,7 +9,21 @@ const main = document.getElementsByClassName('main');
 const wrapper = document.getElementsByClassName('wrapper');
 const header = document.getElementsByClassName('banner');
 
+//Globl utility functions
 
+function throtler(callback, delay){  
+    const cb = callback;
+    let timeout;
+
+    return function(){
+        if(!timeout){
+            timeout = setTimeout(function(){
+                timeout = null;
+                cb()
+            }, delay)
+        } 
+    }
+}
 
 //Dynamic dropdown menu
 
@@ -19,21 +33,11 @@ navToggle[0].addEventListener('click', function(e){
    navIcon[0].classList.toggle('banner__nav-icon--closed')
 })
 
-//Resize adjustment styles && throtler
-
-let timeout;
-function throtler(){
-    if(!timeout){
-        timeout = setTimeout(function(){
-            timeout = null;
-            addStyle()
-        }, 500)
-    } 
-}
+//Resize adjustment styles & events
 
 function addStyle(){
     let windowsWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    console.log("timeout")
+    console.log("sheeet")
     
     if(windowsWidth > 800 && main[0].classList.contains('main--open-menu')){
         main[0].classList.remove('main--open-menu')
@@ -41,17 +45,17 @@ function addStyle(){
     }
 
     else if(windowsWidth <= 750){
-        window.removeEventListener('scroll', scrollHandler);
+        window.removeEventListener('scroll', scrollThrotler);
         for(let i = 0; i < ingredients_descriptions.length; i++){
             ingredients_descriptions[i].classList.remove('section-ingredients__description--show')
         }
     }
     else{
-        window.addEventListener('scroll', scrollHandler)
+        window.addEventListener('scroll', scrollThrotler)
     }
 }
-
-window.addEventListener('resize', throtler)
+const reziseThrotler = throtler(addStyle, 500);
+window.addEventListener('resize', reziseThrotler);
 
 //Scroll event animations
 
@@ -69,8 +73,8 @@ const eleDistances = getDistance(ingredients_elements)
 const viewPortSize = document.documentElement.clientHeight;
 let windowsWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
-
 function scrollHandler(e){
+    console.log("asd")
     if(windowsWidth > 750){
         var scrollHeight = viewPortSize + document.documentElement.scrollTop;
         for(let i = 0; i < eleDistances.length; i++){
@@ -82,38 +86,8 @@ function scrollHandler(e){
        
     }  
  }
-
-window.addEventListener("scroll", scrollHandler)
-    
-    
-    /*
-    if(scrollHeight >= eleDistances[0]){
-        ingredients_descriptions[0].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[1]){
-        ingredients_descriptions[1].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[2]){
-        ingredients_descriptions[2].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[3]){
-        ingredients_descriptions[3].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[4]){
-        ingredients_descriptions[4].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[5]){
-        ingredients_descriptions[5].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[6]){
-        ingredients_descriptions[6].classList.add('section-ingredients__description--show')
-    } 
-    if(scrollHeight >= eleDistances[7]){
-        ingredients_descriptions[7].classList.add('section-ingredients__description--show')
-    }
-*/
-
-
+const scrollThrotler = throtler(scrollHandler, 300);
+window.addEventListener("scroll", scrollThrotler);
 
 //Touch event animations
 
